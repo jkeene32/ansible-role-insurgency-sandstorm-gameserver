@@ -61,7 +61,7 @@
       group: "{{ sandstorm_group }}"
   with_dict: "{{ sandstorm_servers }}"
 
-- name: Install sandstorm game servers (take some times)
+- name: Install sandstorm game servers (can take some time)
   shell: "timeout {{ sandstorm_install_timeout_minutes}}m ./steamcmd.sh +force_install_dir gameservers/{{ item.key }} +login anonymous +app_update {{ sandstorm_app_id }} validate +quit"
   args:
     executable: /bin/bash
